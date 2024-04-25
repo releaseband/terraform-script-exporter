@@ -25,3 +25,9 @@ variable "scripts_list" {
   type        = list(any)
   description = "list of scripts"
 }
+variable "environment" {
+  type = string
+}
+variable "domain" {
+  type = string
+}
