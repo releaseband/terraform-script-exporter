@@ -9,7 +9,6 @@ resource "kubernetes_config_map" "main" {
   }
 }
 
-
 resource "helm_release" "main" {
   name        = "script-exporter"
   namespace   = "monitoring"
@@ -23,6 +22,8 @@ resource "helm_release" "main" {
     image_tag        = var.image_tag,
     image_repository = var.image_repository,
     configmap_name   = kubernetes_config_map.main.metadata[0].name
+    environment      = var.environment
+    domain           = var.domain
   })]
 }
 

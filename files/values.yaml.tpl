@@ -28,6 +28,11 @@ volumeMounts:
   - name: scripts
     mountPath: /scripts
     readOnly: true
+env:
+  - name: ENVIRONMENT
+    value: ${environment}
+  - name: DOMAIN
+    value: ${domain}
 serviceMonitor:
   enabled: true
 config: |
