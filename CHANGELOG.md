@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/releaseband/terraform-script-exporter/compare/v1.1.1...v1.1.2) (2024-05-08)
+
+
+### Bug Fixes
+
+* change helm repo url to nexus ([fedd32d](https://github.com/releaseband/terraform-script-exporter/commit/fedd32dc8bce57257175e59e18f97d47abbc0af2))
+
 ## [1.1.1](https://github.com/releaseband/terraform-script-exporter/compare/v1.1.0...v1.1.1) (2024-05-08)
 
 
