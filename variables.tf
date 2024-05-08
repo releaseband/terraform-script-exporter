@@ -31,3 +31,9 @@ variable "environment" {
 variable "domain" {
   type = string
 }
+variable "game" {
+  type = string
+}
+variable "namespace" {
+  type = string
+}

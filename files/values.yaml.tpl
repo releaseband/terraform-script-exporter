@@ -33,6 +33,8 @@ env:
     value: ${environment}
   - name: DOMAIN
     value: ${domain}
+  - name: GAME
+    value: ${game}
 serviceMonitor:
   enabled: true
 config: |
