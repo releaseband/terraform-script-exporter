@@ -12,7 +12,7 @@ resource "kubernetes_config_map" "main" {
 resource "helm_release" "main" {
   name        = "script-exporter"
   namespace   = var.namespace
-  repository  = "https://ricoberger.github.io/helm-charts"
+  repository  = "https://nexus.releaseband.com/repository/helm-proxy-script-exporter/"
   timeout     = 240
   version     = var.chart_version
   chart       = "script-exporter"
