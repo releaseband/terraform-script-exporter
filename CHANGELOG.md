@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/releaseband/terraform-script-exporter/compare/v1.1.0...v1.1.1) (2024-05-08)
+
+
+### Bug Fixes
+
+* update variables ([b1af484](https://github.com/releaseband/terraform-script-exporter/commit/b1af4842bf287497f13556c58408efe0199cb6b2))
+
 ## [1.1.0](https://github.com/releaseband/terraform-script-exporter/compare/v1.0.0...v1.1.0) (2024-05-08)
 
 
