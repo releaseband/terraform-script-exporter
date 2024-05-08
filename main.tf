@@ -1,7 +1,7 @@
 resource "kubernetes_config_map" "main" {
   metadata {
     name      = "scripts"
-    namespace = "monitoring"
+    namespace = var.namespace
   }
   data = {
     for f in var.scripts :
@@ -11,7 +11,7 @@ resource "kubernetes_config_map" "main" {
 
 resource "helm_release" "main" {
   name        = "script-exporter"
-  namespace   = "monitoring"
+  namespace   = var.namespace
   repository  = "https://ricoberger.github.io/helm-charts"
   timeout     = 240
   version     = var.chart_version
@@ -24,6 +24,7 @@ resource "helm_release" "main" {
     configmap_name   = kubernetes_config_map.main.metadata[0].name
     environment      = var.environment
     domain           = var.domain
+    game             = var.game
   })]
 }
 
@@ -38,7 +39,7 @@ metadata:
     func: ${split(".", each.key)[0]}
     release: monitoring
   name: script-exporter-${split(".", each.key)[0]}
-  namespace: monitoring
+  namespace: ${var.namespace}
 spec:
   endpoints:
     - honorLabels: true
@@ -52,7 +53,7 @@ spec:
   jobLabel: script-exporter
   namespaceSelector:
     matchNames:
-      - monitoring
+      - ${var.namespace}
   selector:
     matchLabels:
       app.kubernetes.io/instance: script-exporter
@@ -64,7 +65,7 @@ spec:
 resource "kubernetes_network_policy" "main" {
   metadata {
     name      = "script-exporter"
-    namespace = "monitoring"
+    namespace = var.namespace
   }
 
   spec {
